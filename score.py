@@ -71,8 +71,8 @@ def show_scores(screen, scores):    # Отрисовка статистики в
     count = 1
     for i in scores[:5]:
         i = [str(j) for j in i]
-        text = font.render(f'{count}    {'    '.join(i)}', True, (255, 255, 255))
-        shadow_text = font.render(f'{count}    {'    '.join(i)}', True, (0, 0, 0))
+        text = font.render(f"{count}    {'    '.join(i)}", True, (255, 255, 255))
+        shadow_text = font.render(f"{count}    {'    '.join(i)}", True, (0, 0, 0))
         pos = (WIDTH / 2 - text.get_width() / 2, 80 + (count * (text.get_height() + 24)))
         screen.blit(shadow_text, (pos[0] + 4, pos[1] + 4))
         screen.blit(text, pos)
