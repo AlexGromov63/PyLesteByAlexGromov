@@ -39,7 +39,7 @@ def main():     # Основной игровой цикл
     isdashing = wiggle = iswalljump = isdeathanim = paused = drawscoreChange = False    # Элементы состояния игрока
     fadeanimate = startfadeanim = True              # Элементы состояния анимаций
     running = True
-    timer_start_time = pygame.time.get_ticks()    # Обнуление таймера тиков
+    timer_start_time = animate_start_time = pygame.time.get_ticks()    # Обнуление таймера тиков
     timer_time = 0
     level_start_score = 0                           # Обнуление счетчика очков
     while running:
@@ -193,7 +193,7 @@ def main():     # Основной игровой цикл
         if isdeathanim:         # Анимация смерти персонажа
             deathAnim(screen, DeathParticles)
         if fadeanimate and not paused:  # Анимация затухания
-            FadeAnim(CapturedScreen, current_time - timer_start_time, True)
+            FadeAnim(screen, current_time - animate_start_time, True)
         timer_time += dt
         timer.draw(screen, timer_time)
         pygame.display.flip()
