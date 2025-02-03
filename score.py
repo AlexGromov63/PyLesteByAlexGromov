@@ -35,7 +35,7 @@ def add_to_score(player_name, map, score, time, deaths):    # Функция д�
     cursor = conn.cursor()
     cursor.execute('''INSERT INTO scores (name, map, score, deaths, time, timeAbs, date)
                    VALUES (?, ?, ?, ?, ?, ?, ?)''',
-                   (player_name, map, score, deaths, time[0], time[1], date.today().strftime("%d.%m.%Y")))
+                   (player_name, map - 1, score, deaths, time[0], time[1], date.today().strftime("%d.%m.%Y")))
     conn.commit()
     conn.close()
 
