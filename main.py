@@ -26,6 +26,9 @@ def main():     # Основной игровой цикл
     clock = pygame.time.Clock()
     sfx = initSounds()  # Инициализация звуков
     mapnum = 0          # Счетчик урвыней
+    if len(maplist) == 0:    # Проверка наличия уровней
+        print('Failed to load levels')
+        quit()
     map, player = reloadMap(maplist[mapnum], sfx)   # Загружаем карту и игрока
     timer = TimerScreen((255, 255, 255), (WIDTH // 2, 30))  # Создание объекта таймера
     SnowParticles = SnowParticlesTogether(0.8)      # Создание частиц снега
